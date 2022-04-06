@@ -27,10 +27,9 @@ fn setup_log() -> tracing_appender::non_blocking::WorkerGuard {
         .with(
             tracing_subscriber::fmt::layer()
                 .with_writer(non_blocking)
-                .pretty()
                 .with_ansi(false),
         )
-        .with(tracing_subscriber::fmt::layer())
+        .with(tracing_subscriber::fmt::layer().pretty())
         .with(filter)
         .init();
     info!(

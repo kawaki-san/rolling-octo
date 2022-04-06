@@ -1,8 +1,8 @@
 mod login;
 
-use iced::{executor, Application};
+use iced::{executor, Application, Text};
 pub use login::*;
-use tracing::trace;
+use tracing::{error, info, trace, warn};
 
 #[derive(Debug, Default)]
 pub struct Refuel {
@@ -76,15 +76,15 @@ impl Application for Refuel {
                     *state.remember_session_mut() = !*state.remember_session_mut()
                 }
                 Message::LoginActionLogin => {
-                    trace!("login clicked");
+                    info!("login clicked");
                     //TODO
                 }
                 Message::LoginActionRegister => {
-                    trace!("register clicked");
+                    warn!("register clicked");
                     //TODO
                 }
                 Message::LoginActionResetPassword => {
-                    trace!("reset clicked");
+                    error!("reset clicked");
                     //TODO
                 }
             },
@@ -97,4 +97,8 @@ impl Application for Refuel {
             Page::Login(ref mut state) => state.view(),
         }
     }
+}
+
+pub fn button_text(text: &str) -> Text {
+    Text::new(format!("   {text}   "))
 }
