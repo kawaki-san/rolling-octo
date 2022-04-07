@@ -1,7 +1,6 @@
-use iced::{
-    button, text_input, Button, Checkbox, Column, Container, Font, Length, Row, Space, Text,
-    TextInput,
-};
+use iced::widget::button;
+use iced::widget::button::Button;
+use iced::{text_input, Checkbox, Column, Container, Font, Length, Row, Space, Text, TextInput};
 
 use crate::style;
 
